@@ -1,0 +1,92 @@
+{
+  "case_id": "MF000281",
+  "generated_report": "FINDINGS: No suspicious pulmonary nodule is seen. Mild centrilobular emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: No histology available. IMPRESSION: Lung RADS 1. No suspicious pulmonary nodule. RECOMMENDATION: Continue annual low dose CT screening in 12 months.",
+  "reference_report": "FINDINGS: No pulmonary nodule or mass is identified. No emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: No histology available. IMPRESSION: Lung RADS 1. No suspicious pulmonary nodule. RECOMMENDATION: Continue annual low dose CT screening in 12 months.",
+  "predicted_findings": {
+    "case_id": "MF000281",
+    "referral_pathway": "screening programme",
+    "nodule_present": 0,
+    "nodule_presence_prob": 0.3002,
+    "nodule_type": "none",
+    "margin": "none",
+    "nodule_diameter_mm": null,
+    "lung_rads_category": "1",
+    "malignancy_prob": 0.0747,
+    "mediastinal_lymphadenopathy": 0,
+    "lymph_prob": 0.0174,
+    "histology_subtype": "not sampled",
+    "histology_prob": null,
+    "peak_x_norm": 0.7031,
+    "peak_y_norm": 0.3594,
+    "peak_confidence": 0.2306
+  },
+  "lung_rads_probabilities": {
+    "1": 0.7462,
+    "2": 0.2365,
+    "3": 0.0112,
+    "4A": 0.0052,
+    "4B": 0.0003,
+    "4X": 0.0006
+  },
+  "reference": {
+    "malignancy_label": 0,
+    "lung_rads": "1",
+    "histology": "not sampled"
+  },
+  "observed_concepts": [
+    "emphysema",
+    "lung_rads_1"
+  ],
+  "explanation_target": "Benign process",
+  "explanation_parent": null,
+  "knowledge_graph_evidence": [
+    {
+      "source": "Lung RADS 1",
+      "target": "Benign process",
+      "strength": 0.9,
+      "steps": [
+        {
+          "from": "Lung RADS 1",
+          "relation": "suggests",
+          "to": "Benign process",
+          "evidence": "KB001"
+        }
+      ]
+    }
+  ],
+  "retrieved_guidance": [
+    {
+      "doc_id": "KB001",
+      "title": "Lung RADS category 1 negative or benign appearance",
+      "rank": 1,
+      "fused_score": 0.1571,
+      "components": {
+        "bm25": 25.2587,
+        "dense": 0.9552,
+        "graph": 1.0
+      }
+    },
+    {
+      "doc_id": "KB002",
+      "title": "Lung RADS category 2 benign behaviour",
+      "rank": 2,
+      "fused_score": 0.1474,
+      "components": {
+        "bm25": 9.7345,
+        "dense": 0.6765,
+        "graph": 0.4472
+      }
+    },
+    {
+      "doc_id": "KB041",
+      "title": "Low dose CT protocol",
+      "rank": 3,
+      "fused_score": 0.1318,
+      "components": {
+        "bm25": 5.6805,
+        "dense": 0.2169,
+        "graph": 0.5774
+      }
+    }
+  ]
+}

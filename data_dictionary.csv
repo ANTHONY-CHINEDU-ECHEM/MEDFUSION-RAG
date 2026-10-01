@@ -1,0 +1,74 @@
+column,type,description
+case_id,string,Unique study identifier
+patient_id,string,Pseudonymised patient identifier; patients may have several studies
+study_sequence,int,"Order of the study within the patient timeline, starting at 1"
+study_date,date,Study date in YYYY/MM/DD format
+interval_days_from_prior,int,Days since the previous study for the same patient; blank at baseline
+site_id,category,Acquisition site code
+region,category,NHS region of the acquisition site
+referral_pathway,category,"screening programme, incidental finding, urgent suspected cancer or surveillance"
+age_years,int,Age at the time of the study
+sex,category,Recorded sex
+smoking_status,category,"never, former or current"
+pack_years,float,Cumulative tobacco exposure in pack years
+years_since_quit,int,Years since smoking cessation for former smokers
+family_history_lung_cancer,binary,First degree relative with lung cancer
+copd_diagnosis,binary,Recorded chronic obstructive pulmonary disease
+prior_extrathoracic_cancer,binary,Previous cancer outside the thorax
+bmi,float,Body mass index in kilograms per square metre; may be missing
+ecog_status,int,ECOG performance status 0 to 3; may be missing
+presenting_symptom,category,Dominant presenting symptom
+scanner_vendor,category,CT scanner manufacturer
+slice_thickness_mm,float,Reconstructed slice thickness
+tube_voltage_kvp,int,Tube voltage
+ctdivol_mgy,float,Volume CT dose index in milligray
+contrast_enhanced,binary,Intravenous contrast administered
+emphysema_severity,category,"none, mild, moderate or severe"
+nodule_present,binary,At least one pulmonary nodule identified
+nodule_count,int,Number of nodules identified
+dominant_nodule_lobe,category,"Lobe of the dominant nodule (RUL, RML, RLL, LUL, LLL or none)"
+nodule_x_norm,float,Horizontal centre of the dominant nodule on the key image (0 to 1)
+nodule_y_norm,float,Vertical centre of the dominant nodule on the key image (0 to 1)
+nodule_diameter_mm,float,Mean axial diameter of the dominant nodule
+solid_component_mm,float,Solid component diameter for part solid nodules
+nodule_volume_mm3,float,Estimated dominant nodule volume
+nodule_type,category,"solid, part solid, ground glass, calcified or none"
+margin,category,"smooth, lobulated, spiculated or none"
+calcification_pattern,category,Benign calcification pattern when calcified
+pleural_contact,binary,Dominant nodule abuts the pleura
+mediastinal_lymphadenopathy,binary,Enlarged mediastinal lymph nodes on CT
+prior_diameter_mm,float,Diameter of the same nodule on the prior study
+growth_status,category,"baseline, growing, stable or decreasing"
+volume_doubling_time_days,int,Volume doubling time when interval growth is present
+brock_risk_pct,float,Brock style malignancy probability in percent
+lung_rads_category,category,"Lung RADS style category: 1, 2, 3, 4A, 4B or 4X"
+histology_available,binary,Tissue sample and whole slide image available
+sampling_procedure,category,Tissue sampling method
+histology_subtype,category,Histopathological diagnosis
+adenocarcinoma_pattern,category,Predominant adenocarcinoma growth pattern
+tumour_grade,category,Histological grade or neuroendocrine category
+mitoses_per_2mm2,int,Mitotic count per 2 square millimetres
+ki67_index_pct,int,Ki67 proliferation index in percent
+tumour_cellularity_pct,float,Viable tumour cellularity of the sample in percent
+nuclear_pleomorphism_score,int,Nuclear pleomorphism score 1 to 3
+necrosis_present,binary,Tumour necrosis present in the sample
+pdl1_tps_pct,int,PDL1 tumour proportion score in percent
+molecular_driver,category,Actionable driver result
+t_stage,category,Clinical T descriptor
+n_stage,category,Clinical N descriptor
+m_stage,category,Clinical M descriptor
+clinical_stage,category,TNM 8th edition style stage group
+icd10_code,category,ICD 10 code for the encounter
+malignancy_label,binary,Reference standard malignancy of the dominant nodule
+reference_standard,category,How the malignancy label was established
+recommendation_id,category,Identifier of the guideline recommendation (R01 to R09)
+gold_guideline_doc_ids,string,Knowledge base passages that support the recommendation
+ct_image_seed,int,Seed for deterministic rendering of the CT key image
+wsi_image_seed,int,Seed for deterministic rendering of the whole slide image tile
+clinical_note,text,Free text referral and EHR summary (model input)
+findings_text,text,CT findings section of the integrated report
+pathology_text,text,Pathology section of the integrated report
+impression_text,text,Impression section of the integrated report
+recommendation_text,text,Guideline grounded recommendation sentence
+integrated_report,text,Complete integrated radiology pathology report (generation target)
+split,category,"train, validation or test, assigned at patient level"

@@ -1,0 +1,50 @@
+node_id,label,node_type
+spiculation,Spiculated margin,imaging_finding
+lobulated_margin,Lobulated margin,imaging_finding
+solid_nodule,Solid nodule,imaging_finding
+part_solid_nodule,Part solid nodule,imaging_finding
+ground_glass_nodule,Ground glass nodule,imaging_finding
+calcified_nodule,Calcified nodule,imaging_finding
+upper_lobe,Upper lobe location,imaging_finding
+pleural_contact,Pleural contact,imaging_finding
+lymphadenopathy,Mediastinal lymphadenopathy,imaging_finding
+emphysema,Emphysema,imaging_finding
+rapid_growth,Volume doubling time below 400 days,imaging_finding
+large_nodule,Nodule 15 mm or larger,imaging_finding
+multiple_nodules,Multiple nodules,imaging_finding
+smoking,Heavy smoking exposure,risk_factor
+never_smoker,Never smoker,risk_factor
+family_history,Family history of lung cancer,risk_factor
+gland_formation,Gland formation,histology_feature
+lepidic_pattern,Lepidic growth pattern,histology_feature
+keratinisation,Keratinisation,histology_feature
+high_mitoses,High mitotic count,histology_feature
+high_ki67,High Ki67 index,histology_feature
+low_ki67,Low Ki67 index,histology_feature
+malignancy,Primary lung malignancy,diagnosis
+benign,Benign process,diagnosis
+adenocarcinoma,Adenocarcinoma,diagnosis
+squamous_cell_carcinoma,Squamous cell carcinoma,diagnosis
+small_cell_carcinoma,Small cell carcinoma,diagnosis
+large_cell_carcinoma,Large cell carcinoma,diagnosis
+carcinoid_tumour,Carcinoid tumour,diagnosis
+granuloma,Granuloma,diagnosis
+hamartoma,Hamartoma,diagnosis
+organising_pneumonia,Organising pneumonia,diagnosis
+nondiagnostic,Nondiagnostic sample,diagnosis
+egfr_mutation,EGFR mutation,biomarker
+alk_rearrangement,ALK rearrangement,biomarker
+kras_g12c,KRAS G12C mutation,biomarker
+pdl1_high,PDL1 TPS 50 percent or more,biomarker
+lung_rads_1,Lung RADS 1,risk_category
+lung_rads_2,Lung RADS 2,risk_category
+lung_rads_3,Lung RADS 3,risk_category
+lung_rads_4a,Lung RADS 4A,risk_category
+lung_rads_4b,Lung RADS 4B,risk_category
+lung_rads_4x,Lung RADS 4X,risk_category
+action_ct_surveillance,CT surveillance,action
+action_ct_3_months,CT at 3 months,action
+action_pet_ct,PET CT,action
+action_tissue_sampling,Tissue sampling,action
+action_mdt,Multidisciplinary team review,action
+action_oncology_urgent,Urgent oncology referral,action

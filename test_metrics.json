@@ -1,0 +1,254 @@
+{
+  "evaluated_at": "2026/10/01 20:47:35",
+  "test_studies": 1598,
+  "test_patients": 1236,
+  "malignancy": {
+    "auroc": 0.8834,
+    "auprc": 0.8323,
+    "brier": 0.0966,
+    "ece": 0.0182,
+    "sensitivity": 0.6134,
+    "specificity": 0.97,
+    "ppv": 0.8833,
+    "npv": 0.8713,
+    "prevalence": 0.2703
+  },
+  "malignancy_nodules_only": {
+    "auroc": 0.8752,
+    "auprc": 0.8446,
+    "brier": 0.1122,
+    "ece": 0.0274,
+    "sensitivity": 0.6134,
+    "specificity": 0.9676,
+    "ppv": 0.9014,
+    "npv": 0.8385,
+    "prevalence": 0.3253
+  },
+  "brock_reference_auroc_nodules_only": 0.8641,
+  "nodule_presence": {
+    "auroc": 0.9627,
+    "auprc": 0.993,
+    "brier": 0.0558,
+    "ece": 0.016,
+    "sensitivity": 0.9172,
+    "specificity": 0.9333,
+    "ppv": 0.9854,
+    "npv": 0.6961,
+    "prevalence": 0.831
+  },
+  "lymphadenopathy": {
+    "auroc": 0.9964,
+    "auprc": 0.9766,
+    "brier": 0.0168,
+    "ece": 0.0354,
+    "sensitivity": 0.8931,
+    "specificity": 0.9979,
+    "ppv": 0.9793,
+    "npv": 0.9883,
+    "prevalence": 0.0995
+  },
+  "lung_rads": {
+    "accuracy": 0.7453,
+    "balanced_accuracy": 0.7145,
+    "macro_f1": 0.7172,
+    "within_one_category": 0.9418
+  },
+  "nodule_type": {
+    "accuracy": 0.7284,
+    "balanced_accuracy": 0.4479,
+    "macro_f1": 0.4312
+  },
+  "margin": {
+    "accuracy": 0.6521,
+    "balanced_accuracy": 0.5862,
+    "macro_f1": 0.5106
+  },
+  "histology": {
+    "accuracy": 0.8699,
+    "balanced_accuracy": 0.5821,
+    "macro_f1": 0.5395,
+    "n": 292
+  },
+  "localisation": {
+    "median_error_mm": 4.3234,
+    "mean_error_mm": 12.4437,
+    "hit_rate_within_10mm": 0.9149,
+    "hit_rate_within_20mm": 0.9194,
+    "hit_rate_within_10mm_nodules_8mm_plus": 0.9385,
+    "hit_rate_within_10mm_nodules_below_6mm": 0.8843
+  },
+  "retrieval_predicted_findings": {
+    "recall_at_1": 0.8698,
+    "recall_at_3": 0.9268,
+    "mrr": 0.8924
+  },
+  "retrieval_oracle_findings": {
+    "recall_at_1": 0.9862,
+    "recall_at_3": 0.9894,
+    "mrr": 0.9873
+  },
+  "malignancy_subgroups_nodules_only": {
+    "scanner_vendor": {
+      "Canon Medical": {
+        "n": 271,
+        "auroc": 0.8067
+      },
+      "GE HealthCare": {
+        "n": 390,
+        "auroc": 0.8995
+      },
+      "Philips": {
+        "n": 298,
+        "auroc": 0.9143
+      },
+      "Siemens Healthineers": {
+        "n": 369,
+        "auroc": 0.8616
+      }
+    },
+    "sex": {
+      "Female": {
+        "n": 636,
+        "auroc": 0.8649
+      },
+      "Male": {
+        "n": 692,
+        "auroc": 0.8863
+      }
+    },
+    "referral_pathway": {
+      "incidental finding": {
+        "n": 342,
+        "auroc": 0.874
+      },
+      "screening programme": {
+        "n": 497,
+        "auroc": 0.8284
+      },
+      "surveillance": {
+        "n": 333,
+        "auroc": 0.8822
+      },
+      "urgent suspected cancer": {
+        "n": 156,
+        "auroc": 0.9355
+      }
+    }
+  },
+  "report_generation": {
+    "n": 800,
+    "medfusion_rag": {
+      "bleu_1": 0.8219,
+      "bleu_2": 0.7631,
+      "bleu_3": 0.7204,
+      "bleu_4": 0.6869,
+      "rouge_l": 0.8085,
+      "lung_rads_accuracy": 0.7488,
+      "nodule_present_accuracy": 0.9175,
+      "lobe_accuracy": 0.3725,
+      "nodule_type_accuracy": 0.7275,
+      "margin_accuracy": 0.605,
+      "lymphadenopathy_accuracy": 0.9912,
+      "emphysema_accuracy": 0.3475,
+      "histology_accuracy": 0.9762,
+      "stage_accuracy": 0.9413,
+      "recommendation_accuracy": 0.8825,
+      "clinical_entity_macro_accuracy": 0.751,
+      "size_mae_mm": 2.5702,
+      "size_within_2mm": 0.7041
+    },
+    "nearest_neighbour_baseline": {
+      "bleu_1": 0.6171,
+      "bleu_2": 0.5296,
+      "bleu_3": 0.4776,
+      "bleu_4": 0.4393,
+      "rouge_l": 0.5994,
+      "lung_rads_accuracy": 0.3538,
+      "nodule_present_accuracy": 0.76,
+      "lobe_accuracy": 0.2712,
+      "nodule_type_accuracy": 0.4225,
+      "margin_accuracy": 0.375,
+      "lymphadenopathy_accuracy": 0.8462,
+      "emphysema_accuracy": 0.38,
+      "histology_accuracy": 0.7113,
+      "stage_accuracy": 0.7762,
+      "recommendation_accuracy": 0.445,
+      "clinical_entity_macro_accuracy": 0.5341,
+      "size_mae_mm": 5.0848,
+      "size_within_2mm": 0.391
+    }
+  },
+  "retrieval_ablation": {
+    "n": 300,
+    "predicted_retrieval": {
+      "bleu_1": 0.8228,
+      "bleu_2": 0.7643,
+      "bleu_3": 0.7219,
+      "bleu_4": 0.6885,
+      "rouge_l": 0.8098,
+      "lung_rads_accuracy": 0.77,
+      "nodule_present_accuracy": 0.9167,
+      "lobe_accuracy": 0.37,
+      "nodule_type_accuracy": 0.7033,
+      "margin_accuracy": 0.6333,
+      "lymphadenopathy_accuracy": 0.9933,
+      "emphysema_accuracy": 0.3133,
+      "histology_accuracy": 0.9733,
+      "stage_accuracy": 0.94,
+      "recommendation_accuracy": 0.8833,
+      "clinical_entity_macro_accuracy": 0.7497,
+      "size_mae_mm": 2.7269,
+      "size_within_2mm": 0.674
+    },
+    "none_retrieval": {
+      "bleu_1": 0.7586,
+      "bleu_2": 0.6963,
+      "bleu_3": 0.6515,
+      "bleu_4": 0.6168,
+      "rouge_l": 0.7364,
+      "lung_rads_accuracy": 0.71,
+      "nodule_present_accuracy": 0.92,
+      "lobe_accuracy": 0.3733,
+      "nodule_type_accuracy": 0.7133,
+      "margin_accuracy": 0.65,
+      "lymphadenopathy_accuracy": 0.9633,
+      "emphysema_accuracy": 0.3133,
+      "histology_accuracy": 0.93,
+      "stage_accuracy": 0.8933,
+      "recommendation_accuracy": 0.62,
+      "clinical_entity_macro_accuracy": 0.7087,
+      "size_mae_mm": 2.5511,
+      "size_within_2mm": 0.6978
+    },
+    "oracle_retrieval": {
+      "bleu_1": 0.8335,
+      "bleu_2": 0.776,
+      "bleu_3": 0.7339,
+      "bleu_4": 0.7006,
+      "rouge_l": 0.8303,
+      "lung_rads_accuracy": 0.85,
+      "nodule_present_accuracy": 0.9767,
+      "lobe_accuracy": 0.3967,
+      "nodule_type_accuracy": 0.78,
+      "margin_accuracy": 0.7067,
+      "lymphadenopathy_accuracy": 0.9967,
+      "emphysema_accuracy": 0.3167,
+      "histology_accuracy": 0.9733,
+      "stage_accuracy": 0.9433,
+      "recommendation_accuracy": 0.9067,
+      "clinical_entity_macro_accuracy": 0.7847,
+      "size_mae_mm": 2.7603,
+      "size_within_2mm": 0.657
+    }
+  },
+  "question_answering_exact_match": {
+    "category": 0.77,
+    "location": 0.375,
+    "size": 0.3225,
+    "morphology": 0.5175,
+    "lymph": 0.9875,
+    "next_step": 0.87,
+    "mean_exact_match": 0.6404
+  },
+  "runtime_seconds": 225.0802
+}

@@ -1,0 +1,437 @@
+[
+  {
+    "analysis": {
+      "case_id": "MF000058",
+      "report": "FINDINGS: A solid nodule in the right upper lobe measures 10 mm with spiculated margins. One additional small nodule is noted, below 4 mm. No emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: CT guided core biopsy shows adenocarcinoma, acinar predominant, grade 2. Ki67 1%. PDL1 TPS 0%. Molecular testing: no driver detected. IMPRESSION: Lung RADS 4X. Highly suspicious nodule, concerning for primary lung malignancy. Histology confirms adenocarcinoma, clinical stage IA1 (T1b N0 M0). RECOMMENDATION: Refer to the lung cancer multidisciplinary team for staging review and treatment planning.",
+      "malignancy_probability": 0.924,
+      "lung_rads": "4X",
+      "nodule_detected": true,
+      "histology_prediction": "adenocarcinoma",
+      "citations": [
+        {
+          "doc_id": "KB012",
+          "title": "Confirmed non small cell lung cancer",
+          "source": "Lung cancer pathway summary"
+        },
+        {
+          "doc_id": "KB017",
+          "title": "Spiculated margins",
+          "source": "Thoracic imaging teaching summary"
+        },
+        {
+          "doc_id": "KB018",
+          "title": "Part solid nodules",
+          "source": "Thoracic imaging teaching summary"
+        }
+      ],
+      "disclaimer": "Research prototype trained on synthetic data. Not for clinical use."
+    },
+    "questions": [
+      {
+        "question": "What is the Lung RADS category?",
+        "intent": "category",
+        "answer": "Lung RADS 4X.",
+        "citations": [
+          {
+            "doc_id": "KB012",
+            "title": "Confirmed non small cell lung cancer",
+            "source": "Lung cancer pathway summary"
+          },
+          {
+            "doc_id": "KB017",
+            "title": "Spiculated margins",
+            "source": "Thoracic imaging teaching summary"
+          },
+          {
+            "doc_id": "KB018",
+            "title": "Part solid nodules",
+            "source": "Thoracic imaging teaching summary"
+          }
+        ],
+        "routing_score": 1.0
+      },
+      {
+        "question": "Where is the nodule?",
+        "intent": "location",
+        "answer": "The right upper lobe.",
+        "citations": [
+          {
+            "doc_id": "KB012",
+            "title": "Confirmed non small cell lung cancer",
+            "source": "Lung cancer pathway summary"
+          },
+          {
+            "doc_id": "KB017",
+            "title": "Spiculated margins",
+            "source": "Thoracic imaging teaching summary"
+          },
+          {
+            "doc_id": "KB018",
+            "title": "Part solid nodules",
+            "source": "Thoracic imaging teaching summary"
+          }
+        ],
+        "routing_score": 1.0
+      },
+      {
+        "question": "How big is it?",
+        "intent": "size",
+        "answer": "10 mm.",
+        "citations": [
+          {
+            "doc_id": "KB012",
+            "title": "Confirmed non small cell lung cancer",
+            "source": "Lung cancer pathway summary"
+          },
+          {
+            "doc_id": "KB017",
+            "title": "Spiculated margins",
+            "source": "Thoracic imaging teaching summary"
+          },
+          {
+            "doc_id": "KB018",
+            "title": "Part solid nodules",
+            "source": "Thoracic imaging teaching summary"
+          }
+        ],
+        "routing_score": 0.8
+      },
+      {
+        "question": "What should happen next?",
+        "intent": "next_step",
+        "answer": "Refer to the lung cancer multidisciplinary team for staging review and treatment planning.",
+        "citations": [
+          {
+            "doc_id": "KB012",
+            "title": "Confirmed non small cell lung cancer",
+            "source": "Lung cancer pathway summary"
+          },
+          {
+            "doc_id": "KB017",
+            "title": "Spiculated margins",
+            "source": "Thoracic imaging teaching summary"
+          },
+          {
+            "doc_id": "KB018",
+            "title": "Part solid nodules",
+            "source": "Thoracic imaging teaching summary"
+          }
+        ],
+        "routing_score": 0.8
+      },
+      {
+        "question": "Are the mediastinal lymph nodes enlarged?",
+        "intent": "lymph",
+        "answer": "No mediastinal or hilar lymphadenopathy.",
+        "citations": [
+          {
+            "doc_id": "KB012",
+            "title": "Confirmed non small cell lung cancer",
+            "source": "Lung cancer pathway summary"
+          },
+          {
+            "doc_id": "KB017",
+            "title": "Spiculated margins",
+            "source": "Thoracic imaging teaching summary"
+          },
+          {
+            "doc_id": "KB018",
+            "title": "Part solid nodules",
+            "source": "Thoracic imaging teaching summary"
+          }
+        ],
+        "routing_score": 0.571
+      }
+    ]
+  },
+  {
+    "analysis": {
+      "case_id": "MF000180",
+      "report": "FINDINGS: There is a 10 mm solid nodule in the right upper lobe with smooth margins. One additional small nodule is noted, below 4 mm. No emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: No histology available. IMPRESSION: Lung RADS 4A. Suspicious nodule. RECOMMENDATION: Arrange low dose CT in 3 months; PET CT may be considered if the solid component is 8 mm or larger.",
+      "malignancy_probability": 0.306,
+      "lung_rads": "4A",
+      "nodule_detected": true,
+      "histology_prediction": "not sampled",
+      "citations": [
+        {
+          "doc_id": "KB004",
+          "title": "Lung RADS category 4A suspicious",
+          "source": "Lung RADS 2022 summary"
+        },
+        {
+          "doc_id": "KB002",
+          "title": "Lung RADS category 2 benign behaviour",
+          "source": "Lung RADS 2022 summary"
+        },
+        {
+          "doc_id": "KB003",
+          "title": "Lung RADS category 3 probably benign",
+          "source": "Lung RADS 2022 summary"
+        }
+      ],
+      "disclaimer": "Research prototype trained on synthetic data. Not for clinical use."
+    },
+    "questions": [
+      {
+        "question": "What is the Lung RADS category?",
+        "intent": "category",
+        "answer": "Lung RADS 4A.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 1.0
+      },
+      {
+        "question": "Where is the nodule?",
+        "intent": "location",
+        "answer": "The right upper lobe.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 1.0
+      },
+      {
+        "question": "How big is it?",
+        "intent": "size",
+        "answer": "10 mm.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 0.8
+      },
+      {
+        "question": "What should happen next?",
+        "intent": "next_step",
+        "answer": "Arrange low dose CT in 3 months; PET CT may be considered if the solid component is 8 mm or larger.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 0.8
+      },
+      {
+        "question": "Are the mediastinal lymph nodes enlarged?",
+        "intent": "lymph",
+        "answer": "No mediastinal or hilar lymphadenopathy.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 0.571
+      }
+    ]
+  },
+  {
+    "analysis": {
+      "case_id": "NEWMF000014",
+      "report": "FINDINGS: A solid nodule in the right upper lobe measures 10 mm with smooth margins. One additional small nodule is noted, below 4 mm. No emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: No histology available. IMPRESSION: Lung RADS 4A. Suspicious nodule. RECOMMENDATION: Arrange low dose CT in 3 months; PET CT may be considered if the solid component is 8 mm or larger.",
+      "malignancy_probability": 0.336,
+      "lung_rads": "4A",
+      "nodule_detected": true,
+      "histology_prediction": "not sampled",
+      "citations": [
+        {
+          "doc_id": "KB004",
+          "title": "Lung RADS category 4A suspicious",
+          "source": "Lung RADS 2022 summary"
+        },
+        {
+          "doc_id": "KB002",
+          "title": "Lung RADS category 2 benign behaviour",
+          "source": "Lung RADS 2022 summary"
+        },
+        {
+          "doc_id": "KB003",
+          "title": "Lung RADS category 3 probably benign",
+          "source": "Lung RADS 2022 summary"
+        }
+      ],
+      "disclaimer": "Research prototype trained on synthetic data. Not for clinical use."
+    },
+    "questions": [
+      {
+        "question": "What is the Lung RADS category?",
+        "intent": "category",
+        "answer": "Lung RADS 4A.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 1.0
+      },
+      {
+        "question": "Where is the nodule?",
+        "intent": "location",
+        "answer": "The right upper lobe.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 1.0
+      },
+      {
+        "question": "How big is it?",
+        "intent": "size",
+        "answer": "10 mm.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 0.8
+      },
+      {
+        "question": "What should happen next?",
+        "intent": "next_step",
+        "answer": "Arrange low dose CT in 3 months; PET CT may be considered if the solid component is 8 mm or larger.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 0.8
+      },
+      {
+        "question": "Are the mediastinal lymph nodes enlarged?",
+        "intent": "lymph",
+        "answer": "No mediastinal or hilar lymphadenopathy.",
+        "citations": [
+          {
+            "doc_id": "KB004",
+            "title": "Lung RADS category 4A suspicious",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB002",
+            "title": "Lung RADS category 2 benign behaviour",
+            "source": "Lung RADS 2022 summary"
+          },
+          {
+            "doc_id": "KB003",
+            "title": "Lung RADS category 3 probably benign",
+            "source": "Lung RADS 2022 summary"
+          }
+        ],
+        "routing_score": 0.571
+      }
+    ]
+  }
+]

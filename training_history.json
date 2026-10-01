@@ -1,0 +1,141 @@
+{
+  "parameters": {
+    "ct_encoder": 356708,
+    "wsi_encoder": 186984,
+    "text_encoder": 504960,
+    "fusion": 794500,
+    "heads": 237917,
+    "decoder": 912000,
+    "total": 3027374
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "lm": 2.4302,
+        "heatmap": 0.7385,
+        "presence": 0.3489,
+        "diameter": 0.231,
+        "nodule_type": 1.13,
+        "margin": 1.058,
+        "lung_rads": 1.3423,
+        "malignancy": 0.5144,
+        "lymph": 0.3445,
+        "histology": 1.4149,
+        "alignment": 3.4283
+      },
+      "validation": {
+        "lm": 0.3052,
+        "heatmap": 0.3213,
+        "presence": 0.2022,
+        "diameter": 0.0957,
+        "nodule_type": 0.8435,
+        "margin": 0.873,
+        "lung_rads": 1.104,
+        "malignancy": 0.4346,
+        "lymph": 0.294,
+        "histology": 1.0407,
+        "alignment": 3.8102,
+        "total": 4.1664
+      },
+      "elapsed_seconds": 1292.5605,
+      "finished_at": "2026/10/01 19:39:04"
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "lm": 0.7756,
+        "heatmap": 0.2903,
+        "presence": 0.2064,
+        "diameter": 0.0977,
+        "nodule_type": 0.8353,
+        "margin": 0.899,
+        "lung_rads": 1.1333,
+        "malignancy": 0.4426,
+        "lymph": 0.2802,
+        "histology": 0.7994,
+        "alignment": 3.0037
+      },
+      "validation": {
+        "lm": 0.222,
+        "heatmap": 0.2668,
+        "presence": 0.2227,
+        "diameter": 0.0768,
+        "nodule_type": 0.8608,
+        "margin": 0.8774,
+        "lung_rads": 1.0329,
+        "malignancy": 0.4179,
+        "lymph": 0.2949,
+        "histology": 0.4216,
+        "alignment": 3.4038,
+        "total": 3.4345
+      },
+      "elapsed_seconds": 2557.6961,
+      "finished_at": "2026/10/01 20:00:10"
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "lm": 0.7222,
+        "heatmap": 0.2334,
+        "presence": 0.1773,
+        "diameter": 0.0741,
+        "nodule_type": 0.7764,
+        "margin": 0.8481,
+        "lung_rads": 0.8985,
+        "malignancy": 0.4013,
+        "lymph": 0.2287,
+        "histology": 0.5708,
+        "alignment": 2.724
+      },
+      "validation": {
+        "lm": 0.1882,
+        "heatmap": 0.2473,
+        "presence": 0.1482,
+        "diameter": 0.0632,
+        "nodule_type": 0.741,
+        "margin": 0.7806,
+        "lung_rads": 0.7373,
+        "malignancy": 0.3768,
+        "lymph": 0.1748,
+        "histology": 0.3166,
+        "alignment": 3.2556,
+        "total": 2.8246
+      },
+      "elapsed_seconds": 3861.6755,
+      "finished_at": "2026/10/01 20:21:54"
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "lm": 0.701,
+        "heatmap": 0.1928,
+        "presence": 0.1585,
+        "diameter": 0.0613,
+        "nodule_type": 0.7394,
+        "margin": 0.8176,
+        "lung_rads": 0.7608,
+        "malignancy": 0.3711,
+        "lymph": 0.1165,
+        "histology": 0.504,
+        "alignment": 2.6193
+      },
+      "validation": {
+        "lm": 0.1803,
+        "heatmap": 0.2319,
+        "presence": 0.1418,
+        "diameter": 0.0552,
+        "nodule_type": 0.7308,
+        "margin": 0.7723,
+        "lung_rads": 0.6858,
+        "malignancy": 0.3758,
+        "lymph": 0.0907,
+        "histology": 0.3421,
+        "alignment": 3.2331,
+        "total": 2.7357
+      },
+      "elapsed_seconds": 5129.8591,
+      "finished_at": "2026/10/01 20:43:02"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "R01": "Continue annual low dose CT screening in 12 months.",
+  "R02": "No further imaging follow up is required for this finding.",
+  "R03": "Arrange low dose CT in 6 months to assess stability.",
+  "R04": "Arrange low dose CT in 3 months; PET CT may be considered if the solid component is 8 mm or larger.",
+  "R05": "Arrange PET CT and image guided tissue sampling with lung multidisciplinary team review.",
+  "R06": "Refer to the lung cancer multidisciplinary team for staging review and treatment planning.",
+  "R07": "Benign histology is concordant with imaging; confirm stability with CT in 6 months.",
+  "R08": "Urgent oncology referral is advised; complete staging with PET CT and brain MRI.",
+  "R09": "The sample is nondiagnostic and discordant with suspicious imaging; repeat tissue sampling is advised."
+}

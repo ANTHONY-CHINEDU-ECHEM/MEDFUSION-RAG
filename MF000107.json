@@ -1,0 +1,81 @@
+{
+  "case_id": "MF000107",
+  "generated_report": "FINDINGS: A solid nodule in the right upper lobe measures 10 mm with spiculated margins. One additional small nodule is noted, below 4 mm. No emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: CT guided core biopsy shows granulomatous inflammation with no evidence of malignancy. IMPRESSION: Lung RADS 4X. Highly suspicious nodule, concerning for primary lung malignancy. Histology confirms benign granuloma. RECOMMENDATION: Benign histology is concordant with imaging; confirm stability with CT in 6 months.",
+  "reference_report": "FINDINGS: A solid nodule in the left lower lobe measures 9 mm with spiculated margins. One additional small nodule is noted, below 4 mm. Severe centrilobular emphysema. No mediastinal or hilar lymphadenopathy. PATHOLOGY: Surgical wedge resection shows granulomatous inflammation with no evidence of malignancy. IMPRESSION: Lung RADS 4X. Highly suspicious nodule, concerning for primary lung malignancy. Histology confirms benign granuloma. RECOMMENDATION: Benign histology is concordant with imaging; confirm stability with CT in 6 months.",
+  "predicted_findings": {
+    "case_id": "MF000107",
+    "referral_pathway": "screening programme",
+    "nodule_present": 1,
+    "nodule_presence_prob": 1.0,
+    "nodule_type": "solid",
+    "margin": "spiculated",
+    "nodule_diameter_mm": 10.482,
+    "lung_rads_category": "4X",
+    "malignancy_prob": 0.0219,
+    "mediastinal_lymphadenopathy": 0,
+    "lymph_prob": 0.0103,
+    "histology_subtype": "granuloma",
+    "histology_prob": 0.9988,
+    "peak_x_norm": 0.6406,
+    "peak_y_norm": 0.4844,
+    "peak_confidence": 0.9927
+  },
+  "lung_rads_probabilities": {
+    "1": 0.0024,
+    "2": 0.001,
+    "3": 0.0093,
+    "4A": 0.3674,
+    "4B": 0.128,
+    "4X": 0.4918
+  },
+  "reference": {
+    "malignancy_label": 0,
+    "lung_rads": "4X",
+    "histology": "granuloma"
+  },
+  "observed_concepts": [
+    "solid_nodule",
+    "spiculation",
+    "upper_lobe",
+    "smoking",
+    "lung_rads_4x"
+  ],
+  "explanation_target": "Granuloma",
+  "explanation_parent": "Benign process",
+  "knowledge_graph_evidence": [],
+  "retrieved_guidance": [
+    {
+      "doc_id": "KB014",
+      "title": "Benign concordant histology",
+      "rank": 1,
+      "fused_score": 0.1571,
+      "components": {
+        "bm25": 19.3522,
+        "dense": 0.855,
+        "graph": 1.2075
+      }
+    },
+    {
+      "doc_id": "KB008",
+      "title": "Benign calcification patterns",
+      "rank": 2,
+      "fused_score": 0.148,
+      "components": {
+        "bm25": 8.5403,
+        "dense": 0.4698,
+        "graph": 1.1997
+      }
+    },
+    {
+      "doc_id": "KB017",
+      "title": "Spiculated margins",
+      "rank": 3,
+      "fused_score": 0.1389,
+      "components": {
+        "bm25": 9.098,
+        "dense": 0.4167,
+        "graph": 0.6488
+      }
+    }
+  ]
+}
