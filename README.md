@@ -134,7 +134,8 @@ The generator (`medfusion/data/generator.py`) simulates each patient as a timeli
 
 ### Rendered images
 
-![Rendered examples](docs/figures/rendered_examples.png)
+<img width="2040" height="912" alt="rendered_examples" src="https://github.com/user-attachments/assets/b19fff87-afbe-4633-9a22-7d3f5664993b" />
+
 
 The CT renderer draws the body outline, lung fields, mediastinum, vertebra, vascular markings that act as realistic nodule mimics, emphysematous low attenuation areas, enlarged mediastinal nodes, satellite nodules and the dominant nodule. The dominant nodule is drawn with type specific appearance (solid, part solid with a dense core, ground glass, calcified) and margin specific shape (smooth, lobulated, spiculated). The histology renderer uses an H and E colour model with subtype specific architecture: glands with lumens for adenocarcinoma, keratin pearls for squamous carcinoma, dense small nuclei for small cell carcinoma, granulomas with optional necrosis, and cartilage islands for hamartoma. Nuclear size and density follow the recorded pleomorphism, cellularity and mitotic count.
 
@@ -191,7 +192,8 @@ Training language modelling loss is higher than validation loss because training
   <tr><td>4</td><td>0.701</td><td>0.180</td><td>2.736</td></tr>
 </table>
 
-![Training curves](outputs/figures/training_curves.png)
+<img width="1430" height="520" alt="training_curves" src="https://github.com/user-attachments/assets/26d8be31-2e72-4975-aae5-21751ff0fc5f" />
+
 
 ## Results
 
@@ -222,7 +224,8 @@ All results are on the held out test split: **1,598 studies from 1,236 patients*
 
 Three findings stand out. First, on nodule studies the model reaches an AUROC of 0.875 from pixels and free text alone. That is slightly above the Brock reference (0.864), which is computed from the true, perfectly measured features that generated the labels, so the network has learned to recover clinically meaningful risk signals from the raw inputs. Second, the malignancy probabilities are well calibrated (ECE 0.018 across all studies), so the operating threshold can be chosen deliberately. At the default threshold of 0.5 the model favours specificity (96.8 percent on nodule studies) over sensitivity (61.3 percent), and a screening deployment would lower the threshold. Third, the weaknesses are informative. Morphology distinctions that are subtle on a 128 pixel key image (ground glass versus part solid, lobulated versus smooth margins) have low balanced accuracy. Rare histology classes pull the macro F1 down even though overall histology accuracy is 87.0 percent.
 
-![Test performance](outputs/figures/test_performance.png)
+<img width="1950" height="572" alt="test_performance" src="https://github.com/user-attachments/assets/e965956b-3b95-453b-8bd8-4954e5045298" />
+
 
 ### Report generation
 
@@ -316,7 +319,8 @@ In the second case the model correctly reads the histology tile as granulomatous
 
 `python run.py explain` writes a four view panel, a JSON record and a Markdown summary for a diverse set of test cases to `outputs/explanations/`.
 
-![Explanation example](outputs/explanations/MF000359.png)
+<img width="1870" height="429" alt="MF000359" src="https://github.com/user-attachments/assets/5ec38696-34cd-4325-81fd-e620446e7d7e" />
+
 
 The panel above shows test case MF000359, a spiculated adenocarcinoma, through five views.
 
