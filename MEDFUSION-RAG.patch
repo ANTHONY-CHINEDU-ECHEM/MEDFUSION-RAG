@@ -1,0 +1,455 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+new file mode 100644
+index 0000000..d967721
+--- /dev/null
++++ b/.github/workflows/ci.yml
+@@ -0,0 +1,23 @@
++name: CI
++
++on:
++  push:
++    branches: [main]
++  pull_request:
++
++jobs:
++  test:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-python@v5
++        with:
++          python-version: "3.12"
++          cache: pip
++      - name: Install
++        run: |
++          python -m pip install --upgrade pip
++          pip install torch --index-url https://download.pytorch.org/whl/cpu
++          pip install -r requirements.txt
++      - name: Test
++        run: pytest tests
+diff --git a/README.md b/README.md
+index b52ad89..1e97226 100644
+--- a/README.md
++++ b/README.md
+@@ -134,7 +134,7 @@ The generator (`medfusion/data/generator.py`) simulates each patient as a timeli
+ 
+ ### Rendered images
+ 
+-<img width="2040" height="912" alt="rendered_examples" src="https://github.com/user-attachments/assets/b19fff87-afbe-4633-9a22-7d3f5664993b" />
++![Rendered examples](docs/figures/rendered_examples.png)
+ 
+ 
+ The CT renderer draws the body outline, lung fields, mediastinum, vertebra, vascular markings that act as realistic nodule mimics, emphysematous low attenuation areas, enlarged mediastinal nodes, satellite nodules and the dominant nodule. The dominant nodule is drawn with type specific appearance (solid, part solid with a dense core, ground glass, calcified) and margin specific shape (smooth, lobulated, spiculated). The histology renderer uses an H and E colour model with subtype specific architecture: glands with lumens for adenocarcinoma, keratin pearls for squamous carcinoma, dense small nuclei for small cell carcinoma, granulomas with optional necrosis, and cartilage islands for hamartoma. Nuclear size and density follow the recorded pleomorphism, cellularity and mitotic count.
+@@ -192,7 +192,7 @@ Training language modelling loss is higher than validation loss because training
+   <tr><td>4</td><td>0.701</td><td>0.180</td><td>2.736</td></tr>
+ </table>
+ 
+-<img width="1430" height="520" alt="training_curves" src="https://github.com/user-attachments/assets/26d8be31-2e72-4975-aae5-21751ff0fc5f" />
++![Training curves](outputs/figures/training_curves.png)
+ 
+ 
+ ## Results
+@@ -224,7 +224,7 @@ All results are on the held out test split: **1,598 studies from 1,236 patients*
+ 
+ Three findings stand out. First, on nodule studies the model reaches an AUROC of 0.875 from pixels and free text alone. That is slightly above the Brock reference (0.864), which is computed from the true, perfectly measured features that generated the labels, so the network has learned to recover clinically meaningful risk signals from the raw inputs. Second, the malignancy probabilities are well calibrated (ECE 0.018 across all studies), so the operating threshold can be chosen deliberately. At the default threshold of 0.5 the model favours specificity (96.8 percent on nodule studies) over sensitivity (61.3 percent), and a screening deployment would lower the threshold. Third, the weaknesses are informative. Morphology distinctions that are subtle on a 128 pixel key image (ground glass versus part solid, lobulated versus smooth margins) have low balanced accuracy. Rare histology classes pull the macro F1 down even though overall histology accuracy is 87.0 percent.
+ 
+-<img width="1950" height="572" alt="test_performance" src="https://github.com/user-attachments/assets/e965956b-3b95-453b-8bd8-4954e5045298" />
++![Test performance](outputs/figures/test_performance.png)
+ 
+ 
+ ### Report generation
+@@ -319,7 +319,7 @@ In the second case the model correctly reads the histology tile as granulomatous
+ 
+ `python run.py explain` writes a four view panel, a JSON record and a Markdown summary for a diverse set of test cases to `outputs/explanations/`.
+ 
+-<img width="1870" height="429" alt="MF000359" src="https://github.com/user-attachments/assets/5ec38696-34cd-4325-81fd-e620446e7d7e" />
++![Explanation example](outputs/explanations/MF000359.png)
+ 
+ 
+ The panel above shows test case MF000359, a spiculated adenocarcinoma, through five views.
+diff --git a/default.json b/configs/default.json
+similarity index 100%
+rename from default.json
+rename to configs/default.json
+diff --git a/data_dictionary.csv b/data/data_dictionary.csv
+similarity index 100%
+rename from data_dictionary.csv
+rename to data/data_dictionary.csv
+diff --git a/clinical_guidance_passages.jsonl b/data/knowledge_base/clinical_guidance_passages.jsonl
+similarity index 100%
+rename from clinical_guidance_passages.jsonl
+rename to data/knowledge_base/clinical_guidance_passages.jsonl
+diff --git a/recommendations.json b/data/knowledge_base/recommendations.json
+similarity index 100%
+rename from recommendations.json
+rename to data/knowledge_base/recommendations.json
+diff --git a/kg_edges.csv b/data/knowledge_graph/kg_edges.csv
+similarity index 100%
+rename from kg_edges.csv
+rename to data/knowledge_graph/kg_edges.csv
+diff --git a/kg_nodes.csv b/data/knowledge_graph/kg_nodes.csv
+similarity index 100%
+rename from kg_nodes.csv
+rename to data/knowledge_graph/kg_nodes.csv
+diff --git a/medfusion_lung_cohort.csv b/data/medfusion_lung_cohort.csv
+similarity index 100%
+rename from medfusion_lung_cohort.csv
+rename to data/medfusion_lung_cohort.csv
+diff --git a/dataset_card.md b/docs/dataset_card.md
+similarity index 100%
+rename from dataset_card.md
+rename to docs/dataset_card.md
+diff --git a/rendered_examples.png b/docs/figures/rendered_examples.png
+similarity index 100%
+rename from rendered_examples.png
+rename to docs/figures/rendered_examples.png
+diff --git a/__init__.py b/medfusion/__init__.py
+similarity index 100%
+rename from __init__.py
+rename to medfusion/__init__.py
+diff --git a/medfusion/data/__init__.py b/medfusion/data/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/dataset.py b/medfusion/data/dataset.py
+similarity index 100%
+rename from dataset.py
+rename to medfusion/data/dataset.py
+diff --git a/generator.py b/medfusion/data/generator.py
+similarity index 100%
+rename from generator.py
+rename to medfusion/data/generator.py
+diff --git a/knowledge.py b/medfusion/data/knowledge.py
+similarity index 100%
+rename from knowledge.py
+rename to medfusion/data/knowledge.py
+diff --git a/renderer.py b/medfusion/data/renderer.py
+similarity index 100%
+rename from renderer.py
+rename to medfusion/data/renderer.py
+diff --git a/tokenizer.py b/medfusion/data/tokenizer.py
+similarity index 100%
+rename from tokenizer.py
+rename to medfusion/data/tokenizer.py
+diff --git a/medfusion/evaluation/__init__.py b/medfusion/evaluation/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/evaluate.py b/medfusion/evaluation/evaluate.py
+similarity index 100%
+rename from evaluate.py
+rename to medfusion/evaluation/evaluate.py
+diff --git a/metrics.py b/medfusion/evaluation/metrics.py
+similarity index 100%
+rename from metrics.py
+rename to medfusion/evaluation/metrics.py
+diff --git a/medfusion/inference/__init__.py b/medfusion/inference/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/assistant.py b/medfusion/inference/assistant.py
+similarity index 100%
+rename from assistant.py
+rename to medfusion/inference/assistant.py
+diff --git a/engine.py b/medfusion/inference/engine.py
+similarity index 100%
+rename from engine.py
+rename to medfusion/inference/engine.py
+diff --git a/medfusion/models/__init__.py b/medfusion/models/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/components.py b/medfusion/models/components.py
+similarity index 100%
+rename from components.py
+rename to medfusion/models/components.py
+diff --git a/image_encoder.py b/medfusion/models/image_encoder.py
+similarity index 100%
+rename from image_encoder.py
+rename to medfusion/models/image_encoder.py
+diff --git a/vlm.py b/medfusion/models/vlm.py
+similarity index 100%
+rename from vlm.py
+rename to medfusion/models/vlm.py
+diff --git a/medfusion/rag/__init__.py b/medfusion/rag/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/graph.py b/medfusion/rag/graph.py
+similarity index 100%
+rename from graph.py
+rename to medfusion/rag/graph.py
+diff --git a/retriever.py b/medfusion/rag/retriever.py
+similarity index 100%
+rename from retriever.py
+rename to medfusion/rag/retriever.py
+diff --git a/medfusion/training/__init__.py b/medfusion/training/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/losses.py b/medfusion/training/losses.py
+similarity index 100%
+rename from losses.py
+rename to medfusion/training/losses.py
+diff --git a/trainer.py b/medfusion/training/trainer.py
+similarity index 100%
+rename from trainer.py
+rename to medfusion/training/trainer.py
+diff --git a/utils.py b/medfusion/utils.py
+similarity index 100%
+rename from utils.py
+rename to medfusion/utils.py
+diff --git a/medfusion/xai/__init__.py b/medfusion/xai/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/explain.py b/medfusion/xai/explain.py
+similarity index 100%
+rename from explain.py
+rename to medfusion/xai/explain.py
+diff --git a/medfusion_vlm_best.pt b/outputs/artifacts/medfusion_vlm_best.pt
+similarity index 100%
+rename from medfusion_vlm_best.pt
+rename to outputs/artifacts/medfusion_vlm_best.pt
+diff --git a/tokenizer.json b/outputs/artifacts/tokenizer.json
+similarity index 100%
+rename from tokenizer.json
+rename to outputs/artifacts/tokenizer.json
+diff --git a/demo_sessions.json b/outputs/demo_sessions.json
+similarity index 100%
+rename from demo_sessions.json
+rename to outputs/demo_sessions.json
+diff --git a/demo_transcript.md b/outputs/demo_transcript.md
+similarity index 100%
+rename from demo_transcript.md
+rename to outputs/demo_transcript.md
+diff --git a/MF000015.json b/outputs/explanations/MF000015.json
+similarity index 100%
+rename from MF000015.json
+rename to outputs/explanations/MF000015.json
+diff --git a/MF000015.png b/outputs/explanations/MF000015.png
+similarity index 100%
+rename from MF000015.png
+rename to outputs/explanations/MF000015.png
+diff --git a/MF000107.json b/outputs/explanations/MF000107.json
+similarity index 100%
+rename from MF000107.json
+rename to outputs/explanations/MF000107.json
+diff --git a/MF000107.png b/outputs/explanations/MF000107.png
+similarity index 100%
+rename from MF000107.png
+rename to outputs/explanations/MF000107.png
+diff --git a/MF000171.json b/outputs/explanations/MF000171.json
+similarity index 100%
+rename from MF000171.json
+rename to outputs/explanations/MF000171.json
+diff --git a/MF000171.png b/outputs/explanations/MF000171.png
+similarity index 100%
+rename from MF000171.png
+rename to outputs/explanations/MF000171.png
+diff --git a/MF000281.json b/outputs/explanations/MF000281.json
+similarity index 100%
+rename from MF000281.json
+rename to outputs/explanations/MF000281.json
+diff --git a/MF000281.png b/outputs/explanations/MF000281.png
+similarity index 100%
+rename from MF000281.png
+rename to outputs/explanations/MF000281.png
+diff --git a/MF000359.json b/outputs/explanations/MF000359.json
+similarity index 100%
+rename from MF000359.json
+rename to outputs/explanations/MF000359.json
+diff --git a/MF000359.png b/outputs/explanations/MF000359.png
+similarity index 100%
+rename from MF000359.png
+rename to outputs/explanations/MF000359.png
+diff --git a/MF001698.json b/outputs/explanations/MF001698.json
+similarity index 100%
+rename from MF001698.json
+rename to outputs/explanations/MF001698.json
+diff --git a/MF001698.png b/outputs/explanations/MF001698.png
+similarity index 100%
+rename from MF001698.png
+rename to outputs/explanations/MF001698.png
+diff --git a/explanations_summary.md b/outputs/explanations/explanations_summary.md
+similarity index 100%
+rename from explanations_summary.md
+rename to outputs/explanations/explanations_summary.md
+diff --git a/test_performance.png b/outputs/figures/test_performance.png
+similarity index 100%
+rename from test_performance.png
+rename to outputs/figures/test_performance.png
+diff --git a/training_curves.png b/outputs/figures/training_curves.png
+similarity index 100%
+rename from training_curves.png
+rename to outputs/figures/training_curves.png
+diff --git a/sample_generations.jsonl b/outputs/metrics/sample_generations.jsonl
+similarity index 100%
+rename from sample_generations.jsonl
+rename to outputs/metrics/sample_generations.jsonl
+diff --git a/test_metrics.json b/outputs/metrics/test_metrics.json
+similarity index 100%
+rename from test_metrics.json
+rename to outputs/metrics/test_metrics.json
+diff --git a/training_history.json b/outputs/metrics/training_history.json
+similarity index 100%
+rename from training_history.json
+rename to outputs/metrics/training_history.json
+diff --git a/requirements.txt b/requirements.txt
+new file mode 100644
+index 0000000..25b8f9f
+--- /dev/null
++++ b/requirements.txt
+@@ -0,0 +1,7 @@
++torch>=2.2
++numpy>=1.26
++pandas>=2.1
++scipy>=1.11
++scikit_learn>=1.4
++matplotlib>=3.8
++pytest>=8.0
+diff --git a/run.py b/run.py
+new file mode 100644
+index 0000000..6125a03
+--- /dev/null
++++ b/run.py
+@@ -0,0 +1,99 @@
++"""MedFusion RAG command line entry point.
++
++Usage:
++    python run.py data        generate the cohort, data dictionary, knowledge base and knowledge graph
++    python run.py prepare     fit the tokenizer, render and cache images, precompute retrieval
++    python run.py train       train MedFusion VLM and save the best checkpoint
++    python run.py evaluate    run the full test evaluation, baselines, ablations and figures
++    python run.py explain     produce XAI panels and evidence chains
++    python run.py demo        run the clinical assistant demo
++    python run.py audit       verify that no hyphen or dash character exists anywhere
++    python run.py all         data, prepare, train, evaluate, explain and demo in sequence
++
++Any configuration value can be overridden with dotted key=value pairs, for
++example: python run.py train training.epochs=8 model.d_model=192
++"""
++from __future__ import annotations
++
++import sys
++
++from medfusion.utils import get_logger, load_config, set_seed
++
++LOGGER = get_logger("run")
++
++
++def cmd_data(cfg: dict):
++    from medfusion.data.dataset import build_dataset
++
++    frame = build_dataset(cfg, force=False)
++    LOGGER.info("Cohort ready with shape %s", frame.shape)
++
++
++def cmd_prepare(cfg: dict):
++    from medfusion.training.trainer import prepare_context
++
++    prepare_context(cfg)
++    LOGGER.info("Tokenizer, image cache and retrieval context ready")
++
++
++def cmd_train(cfg: dict):
++    from medfusion.training.trainer import train
++
++    train(cfg)
++
++
++def cmd_evaluate(cfg: dict):
++    from medfusion.evaluation.evaluate import evaluate
++
++    evaluate(cfg)
++
++
++def cmd_explain(cfg: dict):
++    from medfusion.xai.explain import explain_cases
++
++    explain_cases(cfg)
++
++
++def cmd_demo(cfg: dict):
++    from medfusion.inference.assistant import demo
++
++    demo(cfg)
++
++
++def cmd_audit(cfg: dict):
++    from tools.hyphen_audit import main as audit_main
++
++    saved = sys.argv
++    sys.argv = saved[:1]
++    try:
++        return audit_main()
++    finally:
++        sys.argv = saved
++
++
++COMMANDS = {
++    "data": cmd_data, "prepare": cmd_prepare, "train": cmd_train, "evaluate": cmd_evaluate,
++    "explain": cmd_explain, "demo": cmd_demo, "audit": cmd_audit,
++}
++PIPELINE = ("data", "prepare", "train", "evaluate", "explain", "demo")
++
++
++def main(argv: list[str] | None = None):
++    args = list(sys.argv[1:] if argv is None else argv)
++    if not args or args[0] not in (*COMMANDS, "all"):
++        print(__doc__)
++        return 2
++    command, overrides = args[0], [a for a in args[1:] if "=" in a]
++    cfg = load_config(overrides=overrides)
++    set_seed(cfg["seed"])
++    steps = PIPELINE if command == "all" else (command,)
++    for step in steps:
++        LOGGER.info("Running step: %s", step)
++        status = COMMANDS[step](cfg)
++        if status:
++            return status
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/conftest.py b/tests/conftest.py
+similarity index 100%
+rename from conftest.py
+rename to tests/conftest.py
+diff --git a/test_data.py b/tests/test_data.py
+similarity index 100%
+rename from test_data.py
+rename to tests/test_data.py
+diff --git a/test_model_and_policy.py b/tests/test_model_and_policy.py
+similarity index 100%
+rename from test_model_and_policy.py
+rename to tests/test_model_and_policy.py
+diff --git a/test_text_and_retrieval.py b/tests/test_text_and_retrieval.py
+similarity index 100%
+rename from test_text_and_retrieval.py
+rename to tests/test_text_and_retrieval.py
+diff --git a/tools/__init__.py b/tools/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/build_dataset_card.py b/tools/build_dataset_card.py
+similarity index 100%
+rename from build_dataset_card.py
+rename to tools/build_dataset_card.py
+diff --git a/hyphen_audit.py b/tools/hyphen_audit.py
+similarity index 97%
+rename from hyphen_audit.py
+rename to tools/hyphen_audit.py
+index f2e546b..15bcce2 100644
+--- a/hyphen_audit.py
++++ b/tools/hyphen_audit.py
+@@ -32,7 +32,7 @@ FORBIDDEN_CODE_POINTS = {
+ }
+ FORBIDDEN = {chr(code): name for code, name in FORBIDDEN_CODE_POINTS.items()}
+ TEXT_SUFFIXES = {".py", ".md", ".txt", ".json", ".jsonl", ".csv", ".cfg", ".toml", ".ini", ".yaml", ".yml", ".html"}
+-SKIP_DIRS = {"__pycache__", ".git", ".pytest_cache", "cache"}
++SKIP_DIRS = {"__pycache__", ".git", ".github", ".pytest_cache", "cache"}
+ 
+ 
+ def audit_text(text: str):
+diff --git a/install_requirements.py b/tools/install_requirements.py
+similarity index 100%
+rename from install_requirements.py
+rename to tools/install_requirements.py
+diff --git a/render_examples.py b/tools/render_examples.py
+similarity index 100%
+rename from render_examples.py
+rename to tools/render_examples.py
